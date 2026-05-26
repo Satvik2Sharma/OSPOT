@@ -1,39 +1,145 @@
 # OSPOT (OS Performance Observation Tool)
 
-**OSPOT** is a lightweight, low-level system performance monitoring utility designed for Linux environments. It interfaces directly with the Linux virtual filesystem to extract high-fidelity telemetry regarding hardware utilization and system state.
+**OSPOT** is a lightweight, low-level Linux system performance monitoring utility written in C++.  
+It directly interfaces with the Linux virtual filesystem to extract real-time telemetry regarding CPU usage, memory allocation, and overall system state.
+
+---
 
 ## 🧬 System Architecture
 
-OSPOT bypasses high-level system APIs to read raw hardware telemetry directly from the kernel's virtual file system.
+OSPOT bypasses high-level monitoring libraries and reads raw telemetry directly from kernel-exposed virtual filesystem interfaces.
 
 ```text
-    [ OSPOT Core Engine ]
-              |
-      +-------+-------+
-      |               |
- [ /proc/stat ]  [ /proc/meminfo ]
-  (CPU/System)     (Mem/Alloc)
-      |               |
-      +-------+-------+
-              |
-    [ Telemetry Aggregator ]
-              |
-      [ ospot_report.txt ]
+          [ OSPOT Core Engine ]
+                    |
+        +-----------+-----------+
+        |                       |
+   [ /proc/stat ]        [ /proc/meminfo ]
+    (CPU Metrics)          (Memory Metrics)
+        |                       |
+        +-----------+-----------+
+                    |
+         [ Telemetry Aggregator ]
+                    |
+           [ ospot_report.txt ]
 ```
+
+---
+
+## ✨ Features
+
+- Real-time CPU utilization monitoring
+- Memory usage tracking
+- Lightweight CLI interface
+- Linux virtual filesystem integration
+- Telemetry report generation
+- Minimal dependencies
+- Written fully in raw C++
+
+---
 
 ## 🚀 Quick Start
 
-### Compilation
-OSPOT is written in raw C++ and requires `g++` (GCC) to compile. Run the following command in the project directory:
+### 📦 Compilation
+
+OSPOT requires **g++ (GCC)** to compile.
+
+Run the following command inside the project directory:
 
 ```bash
 g++ ospot.cpp -o ospot
 ```
 
-### Execution
-Once compiled, execute the binary to generate a system performance snapshot:
+---
+
+### ▶️ Execution
+
+After successful compilation, run:
 
 ```bash
 ./ospot
 ```
-*Note: This will generate an `ospot_report.txt` file containing the latest telemetry data.*
+
+The interactive command-line interface will start immediately.
+
+> Selecting option `4` from the menu generates a local telemetry report file named:
+>
+> ```text
+> ospot_report.txt
+> ```
+
+---
+
+## 📸 Interactive Demo
+
+Example of the CLI monitoring interface during execution:
+
+![OSPOT Demo](demo_screenshot_ospot.png)
+
+---
+
+## 📁 Project Structure
+
+```text
+OSPOT/
+│
+├── ospot.cpp
+├── README.md
+├── demo_screenshot_ospot.png
+└── ospot_report.txt
+```
+
+---
+
+## 🛠️ Technologies Used
+
+- C++
+- Linux `/proc` Virtual Filesystem
+- GCC / g++
+- Command-Line Interface (CLI)
+
+---
+
+## 🧠 Learning Objectives
+
+This project demonstrates:
+
+- Linux system-level programming
+- Parsing kernel telemetry interfaces
+- File handling in C++
+- CLI application development
+- Real-time performance monitoring concepts
+
+---
+
+## 🔮 Future Improvements
+
+- Disk I/O monitoring
+- Network telemetry support
+- Multi-threaded sampling
+- Export reports in JSON/CSV
+- ncurses-based live dashboard
+- Historical telemetry visualization
+
+---
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+# 🛠️ Push Your Update to GitHub
+
+After replacing the `README.md` content and adding the screenshot image to the project folder, run:
+
+```bash
+# 1. Stage the updated README and screenshot
+git add README.md demo_screenshot_ospot.png
+
+# 2. Commit the changes
+git commit -m "docs: integrate CLI demo screenshot into README"
+
+# 3. Push to GitHub
+git push origin main
+```
