@@ -129,17 +129,6 @@ This project is open-source and available under the MIT License.
 
 ---
 
-# 🛠️ Push Your Update to GitHub
-
-After replacing the `README.md` content and adding the screenshot image to the project folder, run:
-
-```bash
-# 1. Stage the updated README and screenshot
-git add README.md demo_screenshot_ospot.png
-
-# 2. Commit the changes
-git commit -m "docs: integrate CLI demo screenshot into README"
-
 # 3. Push to GitHub
 git push origin main
 ```
