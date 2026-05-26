@@ -126,9 +126,3 @@ This project demonstrates:
 ## 📜 License
 
 This project is open-source and available under the MIT License.
-
----
-
-# 3. Push to GitHub
-git push origin main
-```
